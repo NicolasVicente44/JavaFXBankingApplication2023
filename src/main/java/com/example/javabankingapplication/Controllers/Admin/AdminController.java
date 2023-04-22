@@ -4,6 +4,9 @@ import com.example.javabankingapplication.Models.Model;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
+import com.example.javabankingapplication.Views.AdminMenuOptions;
+
+
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,8 +19,15 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
-            //add switch statements
+
+            switch (newVal) {
+                case CLIENTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getClientsView());
+                default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getCreateClientView());
+            }
+
+
         });
     }
 }
