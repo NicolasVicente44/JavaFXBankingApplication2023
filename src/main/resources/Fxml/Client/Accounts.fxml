@@ -8,55 +8,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane  prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container"
-            stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/19"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.javabankingapplication.Controllers.Client.AccountsController">
-   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chequing Account"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0"/>
-   <VBox layoutX="13.0" layoutY="38.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0"
-         AnchorPane.topAnchor="40.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:"/>
-      <Label fx:id="ch_acc_num" text="3452 4950"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit:"/>
-      <Label fx:id="transaction_limit" text="10"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:"/>
-      <Label fx:id="ch_acc_date" text="2023-07-07"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:"/>
-      <Label fx:id="ch_acc_bal" text="\$3,000.00"/>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container" stylesheets="@../../Styles/Accounts.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javabankingapplication.Controllers.Client.AccountsController">
+   <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chequing Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+   <VBox layoutX="13.0" layoutY="38.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
+      <Label fx:id="ch_acc_num" text="3452 4950" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit:" />
+      <Label fx:id="trabsaction_limit" text="10" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
+      <Label fx:id="ch_acc_date" text="2023-07-07" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
+      <Label fx:id="ch_acc_bal" text="\$3,000.00" />
    </VBox>
-   <Text layoutX="40.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0"/>
-   <VBox layoutX="-6.0" layoutY="340.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0"
-         AnchorPane.leftAnchor="14.0">
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:"/>
-      <Label fx:id="sv_acc_num" text="3452 4950"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit:"/>
-      <Label fx:id="withdrawal_limit" text="\$2,000.00"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:"/>
-      <Label fx:id="sv_acc_date" text="2023-07-07"/>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:"/>
-      <Label fx:id="sv_acc_bal" text="\$12,000.00"/>
+   <Text layoutX="40.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0" />
+   <VBox layoutX="-6.0" layoutY="340.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0">
+      <children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
+         <Label fx:id="sv_acc_num" text="3452 4950" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Withdrawal Limit:" />
+         <Label fx:id="withdrawal_limit" text="\$2,000.00" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
+         <Label fx:id="sv_acc_date" text="2023-07-07" />
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:" />
+         <Label fx:id="sv_acc_bal" text="\$12,000.00" />
+      </children>
    </VBox>
-   <Text layoutX="507.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer Funds To Savings Account:"
-         AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="38.0"/>
-   <TextField fx:id="amount_to_sv" layoutX="448.0" layoutY="72.0" prefHeight="26.0" prefWidth="235.0"
-              AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="72.0"/>
-   <Button fx:id="trans_to_sv_btn" layoutX="448.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0"
-           prefWidth="235.0" text="Transfer" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="123.0">
+   <Text layoutX="507.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer Funds To Savings Account:" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="38.0" />
+   <TextField fx:id="amount_to_sv" layoutX="448.0" layoutY="72.0" prefHeight="26.0" prefWidth="235.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="72.0" />
+   <Button fx:id="trans_to_sv_btn" layoutX="448.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Transfer" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="123.0">
       <graphic>
-         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20"/>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" />
       </graphic>
    </Button>
-   <Text layoutX="446.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0"
-         text="Transfer Funds To Chequing Account:" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0"/>
-   <TextField fx:id="amount_to_ch" layoutX="442.0" layoutY="397.0" prefHeight="26.0" prefWidth="235.0"
-              AnchorPane.topAnchor="395.0"/>
-   <Button fx:id="trans_to_ch_btn" layoutX="442.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0"
-           prefWidth="235.0" text="Transfer" AnchorPane.topAnchor="445.0">
+   <Text layoutX="446.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer Funds To Chequing Account:" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0" />
+   <TextField fx:id="amount_to_ch" layoutX="442.0" layoutY="397.0" prefHeight="26.0" prefWidth="235.0" AnchorPane.topAnchor="395.0" />
+   <Button fx:id="trans_to_ch_btn" layoutX="442.0" layoutY="434.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Transfer" AnchorPane.topAnchor="445.0">
       <graphic>
-         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20"/>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" />
       </graphic>
    </Button>
 </AnchorPane>
