@@ -1,6 +1,8 @@
 package com.example.javabankingapplication.Views;
 
 import com.example.javabankingapplication.Controllers.Client.ClientController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -8,15 +10,31 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
     // client views
+    private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
-
     private AnchorPane transactionsView;
+    private AnchorPane accountsView;
 
 
 
 
-    public ViewFactory(){}
-        public AnchorPane getDashboardView() {
+
+
+    public ViewFactory(){
+        this.clientSelectedMenuItem = new SimpleStringProperty("");
+    }
+
+
+    /* client views section */
+    public StringProperty getClientSelectedMenuItem() {
+        return clientSelectedMenuItem;
+    }
+
+    public StringProperty clientSelectedMenuItemProperty() {
+        return clientSelectedMenuItem;
+    }
+
+    public AnchorPane getDashboardView() {
             if (dashboardView == null) {
                 try {
                     dashboardView = new FXMLLoader(getClass().getResource("/Fxml/Client/Dashboard.fxml")).load();
@@ -41,6 +59,25 @@ public class ViewFactory {
         }
         return transactionsView;
     }
+
+
+
+
+
+
+    public AnchorPane getAccountsView() {
+        if (accountsView == null) {
+            try {
+                accountsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Accounts.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return accountsView;
+    }
+
+
+
 
 
 
