@@ -1,19 +1,30 @@
 package com.example.javabankingapplication.Views;
 
+import com.example.javabankingapplication.Controllers.Admin.AdminController;
 import com.example.javabankingapplication.Controllers.Client.ClientController;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
+    //login
+    private AccountType loginAccountType;
+
+
+
     // client views
-    private final StringProperty clientSelectedMenuItem;
+    private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
+
+
+
+    //Admin views
+    private AnchorPane createClientView;
+    private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
 
 
 
@@ -21,18 +32,25 @@ public class ViewFactory {
 
 
     public ViewFactory(){
-        this.clientSelectedMenuItem = new SimpleStringProperty("");
+        this.loginAccountType = AccountType.CLIENT;
+        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
+
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
+    }
 
     /* client views section */
-    public StringProperty getClientSelectedMenuItem() {
+    public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
 
-    public StringProperty clientSelectedMenuItemProperty() {
-        return clientSelectedMenuItem;
-    }
 
     public AnchorPane getDashboardView() {
             if (dashboardView == null) {
@@ -48,7 +66,6 @@ public class ViewFactory {
 
 
 
-
     public AnchorPane getTransactionsView() {
         if (transactionsView == null) {
             try {
@@ -59,9 +76,6 @@ public class ViewFactory {
         }
         return transactionsView;
     }
-
-
-
 
 
 
@@ -80,21 +94,74 @@ public class ViewFactory {
 
 
 
+    public void showClientWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
+        ClientController clientController = new ClientController();
+        loader.setController(clientController);
+
+        createStage(loader);
+    }
 
 
-    public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
+
+    /**
+     * admin views section
+     */
+
+
+    public ObjectProperty getAdminSelectedMenuItem() {
+        return adminSelectedMenuItem;
+    }
+
+
+
+
+    public AnchorPane getCreateClientView() {
+        if (createClientView == null) {
+            try {
+                createClientView = new FXMLLoader(getClass().getResource("/Fxml/Admin/CreateClient.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return createClientView;
+    }
+
+
+
+    public void showAdminWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
+        AdminController controller = new AdminController();
+        loader.setController(controller);
+
         createStage(loader);
     }
 
 
 
 
-    public void showClientWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Client/Client.fxml"));
-        ClientController clientController = new ClientController();
-        loader.setController(clientController);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //universal view seciton
+
+
+    public void showLoginWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(loader);
     }
 

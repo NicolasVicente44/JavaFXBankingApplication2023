@@ -1,5 +1,7 @@
 package com.example.javabankingapplication.Controllers.Admin;
 
+import com.example.javabankingapplication.Models.Model;
+import com.example.javabankingapplication.Views.AdminMenuOptions;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -15,10 +17,26 @@ public class AdminMenuController implements Initializable {
 
 
 
+    private void addListeners () {}
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        addListeners();
     }
+
+
+
+
+
+
+
+
+
+
+    private void onCreateClient () {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CREATE_CLIENT);
+    }
+
 }
