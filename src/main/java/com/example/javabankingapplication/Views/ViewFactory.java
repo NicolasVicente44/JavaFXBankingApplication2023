@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 public class ViewFactory {
     // client views
     private AnchorPane dashboardView;
+
+    private AnchorPane transactionsView;
+
+
+
+
     public ViewFactory(){}
         public AnchorPane getDashboardView() {
             if (dashboardView == null) {
@@ -23,10 +29,28 @@ public class ViewFactory {
 
 
 
+
+
+    public AnchorPane getTransactionsView() {
+        if (transactionsView == null) {
+            try {
+                transactionsView = new FXMLLoader(getClass().getResource("/Fxml/Client/Transactions.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return transactionsView;
+    }
+
+
+
+
     public void showLoginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Login.fxml"));
         createStage(loader);
     }
+
+
 
 
     public void showClientWindow() {
@@ -36,6 +60,9 @@ public class ViewFactory {
 
         createStage(loader);
     }
+
+
+
 
 
 
@@ -51,6 +78,15 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("Maze Bank");
         stage.show();
+    }
+
+
+
+
+
+
+    public void closeStage (Stage stage) {
+        stage.close();
     }
 
 }
