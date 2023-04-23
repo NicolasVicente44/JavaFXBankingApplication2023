@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.lang.reflect.GenericArrayType;
+
 public class ViewFactory {
     //login
     private AccountType loginAccountType;
@@ -26,6 +28,7 @@ public class ViewFactory {
     private AnchorPane createClientView;
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane clientsView;
+    private AnchorPane depositView;
 
 
 
@@ -139,6 +142,20 @@ public class ViewFactory {
         }
         return clientsView;
     }
+
+
+    public AnchorPane getDepositView() {
+        if (depositView == null) {
+            try {
+                depositView = new FXMLLoader(getClass().getResource("/Fxml/Admin/Deposit.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return depositView;
+    }
+
+
 
     public void showAdminWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/Admin/Admin.fxml"));
