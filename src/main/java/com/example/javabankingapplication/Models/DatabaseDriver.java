@@ -19,6 +19,7 @@ public class DatabaseDriver {
     /**
      * client section
      */
+    //find client creds in db
     public ResultSet getClientData(String pAddress, String password) {
         Statement statement;
         ResultSet resultSet = null;
@@ -42,7 +43,7 @@ public class DatabaseDriver {
      * admin section
      */
 
-
+//find admin creds in db
     public ResultSet getAdminData (String username, String password) {
         Statement statement;
         ResultSet resultSet = null;
@@ -55,6 +56,13 @@ public class DatabaseDriver {
         }
         return  resultSet;
     }
+
+
+
+
+
+
+
 
 
 
